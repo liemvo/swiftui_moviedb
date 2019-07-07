@@ -4,5 +4,5 @@
 - Display the movie in the table view
 ![List](/List.png)
 - Navigation to the detail screen
-![List](/Details.png)
+![List](/Detail.png)
 - Display the image from internet
