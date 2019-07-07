@@ -19,7 +19,7 @@ class NetworkManager: BindableObject {
   }
   
   init() {
-    guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=") else { return }
+    guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=<API_KEY>") else { return }
     URLSession.shared.dataTask(with: url){ (data, _, _) in
       guard let data = data else { return }
       let movies = try! JSONDecoder().decode(MovieList.self, from: data)
