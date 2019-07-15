@@ -17,7 +17,8 @@ struct ContentView : View {
               MovieRow(movie: movie)
           }
       }
-    }.navigationBarTitle(Text("Movies"))
+      .navigationBarTitle(Text("Movies"))
+    }
   }
 }
 
