@@ -10,35 +10,36 @@ import URLImage
 import SwiftUI
 
 struct MovieRow : View {
-  var movie: Movie
-  
-  var body: some View {
-    HStack {
-      URLImage(URL(string:  "https://image.tmdb.org/t/p/original/\(movie.poster_path)")!, delay: 0.25)
-        .resizable()
-        .clipped()
-        .frame(width: 120, height: 160)
-      
-      VStack {
-        HStack {
-          Text(movie.title)
-            .color(Color.blue)
-            .lineLimit(nil)
-          Spacer()
-        }
-        HStack {
-          Text(movie.release_date).color(Color.gray)
-          Spacer()
-          Text("Rate: \(movie.vote_average.format())")
-        }
-        Spacer()
-      }
-    }.padding()
-  }
+	var movie: Movie
+	
+	var body: some View {
+		HStack {
+			URLImage(URL(string:  "https://image.tmdb.org/t/p/original/\(movie.poster_path)")!, delay: 0.25) { proxy in
+				proxy.image.resizable()
+					.frame(width: 120, height: 160)
+				
+			}
+			
+			VStack {
+				HStack {
+					Text(movie.title)
+						.foregroundColor(.blue)
+						.lineLimit(nil)
+					Spacer()
+				}
+				HStack {
+					Text(movie.release_date).foregroundColor(.gray)
+					Spacer()
+					Text("Rate: \(movie.vote_average.format())")
+				}
+				Spacer()
+			}
+		}.padding()
+	}
 }
 
 extension Float {
-  func format() -> String {
-    return String(format: "%.2f",self)
-  }
+	func format() -> String {
+		return String(format: "%.2f",self)
+	}
 }

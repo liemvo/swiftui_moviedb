@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		443AA87423741DD400DD7E91 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 443AA87323741DD400DD7E91 /* Alamofire */; };
 		44E5561C22D15E670000B95D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5561B22D15E670000B95D /* AppDelegate.swift */; };
 		44E5561E22D15E670000B95D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5561D22D15E670000B95D /* SceneDelegate.swift */; };
 		44E5562022D15E670000B95D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5561F22D15E670000B95D /* ContentView.swift */; };
@@ -43,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44E5563A22D171B90000B95D /* URLImage in Frameworks */,
+				443AA87423741DD400DD7E91 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +120,7 @@
 			name = Swiftui_movie;
 			packageProductDependencies = (
 				44E5563922D171B90000B95D /* URLImage */,
+				443AA87323741DD400DD7E91 /* Alamofire */,
 			);
 			productName = Swiftui_movie;
 			productReference = 44E5561822D15E670000B95D /* Swiftui_movie.app */;
@@ -149,6 +152,7 @@
 			mainGroup = 44E5560F22D15E670000B95D;
 			packageReferences = (
 				44E5563822D171B90000B95D /* XCRemoteSwiftPackageReference "url-image" */,
+				443AA87223741DD400DD7E91 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 44E5561922D15E670000B95D /* Products */;
 			projectDirPath = "";
@@ -380,6 +384,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		443AA87223741DD400DD7E91 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.1;
+			};
+		};
 		44E5563822D171B90000B95D /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
@@ -391,6 +403,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		443AA87323741DD400DD7E91 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 443AA87223741DD400DD7E91 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		44E5563922D171B90000B95D /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 44E5563822D171B90000B95D /* XCRemoteSwiftPackageReference "url-image" */;

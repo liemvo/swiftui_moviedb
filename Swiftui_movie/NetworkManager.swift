@@ -10,16 +10,11 @@ import Foundation
 import Combine
 import SwiftUI
 
-class NetworkManager: BindableObject {
-  var didChange = PassthroughSubject<NetworkManager, Never>()
-  var movies = MovieList(results: []){
-    didSet {
-      didChange.send(self)
-    }
-  }
+class NetworkManager: ObservableObject {
+ @Published var movies = MovieList(results: [])
   
   init() {
-    guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=<API_KEY>") else { return }
+    guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=") else { return }
     URLSession.shared.dataTask(with: url){ (data, _, _) in
       guard let data = data else { return }
       let movies = try! JSONDecoder().decode(MovieList.self, from: data)

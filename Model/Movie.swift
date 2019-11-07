@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Movie: Decodable {
+struct Movie: Decodable, Identifiable {
   var vote_count: Int
   var id: Int
   var vote_average: Float
