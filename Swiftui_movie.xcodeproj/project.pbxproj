@@ -51,10 +51,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4490CD2523775AC100E9BC83 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				44E5563422D1605D0000B95D /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4490CD2623775AD200E9BC83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				44E5561F22D15E670000B95D /* ContentView.swift */,
+				44E5563B22D179BA0000B95D /* MovieDetails.swift */,
+				44E5563622D164D80000B95D /* MovieRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		44E5560F22D15E670000B95D = {
 			isa = PBXGroup;
 			children = (
-				44E5562F22D15E920000B95D /* Model */,
 				44E5561A22D15E670000B95D /* Swiftui_movie */,
 				44E5561922D15E670000B95D /* Products */,
 			);
@@ -71,12 +88,11 @@
 		44E5561A22D15E670000B95D /* Swiftui_movie */ = {
 			isa = PBXGroup;
 			children = (
+				4490CD2623775AD200E9BC83 /* Views */,
+				4490CD2523775AC100E9BC83 /* Network */,
+				44E5562F22D15E920000B95D /* Model */,
 				44E5561B22D15E670000B95D /* AppDelegate.swift */,
 				44E5561D22D15E670000B95D /* SceneDelegate.swift */,
-				44E5561F22D15E670000B95D /* ContentView.swift */,
-				44E5563B22D179BA0000B95D /* MovieDetails.swift */,
-				44E5563622D164D80000B95D /* MovieRow.swift */,
-				44E5563422D1605D0000B95D /* NetworkManager.swift */,
 				44E5562122D15E690000B95D /* Assets.xcassets */,
 				44E5562622D15E690000B95D /* LaunchScreen.storyboard */,
 				44E5562922D15E690000B95D /* Info.plist */,
