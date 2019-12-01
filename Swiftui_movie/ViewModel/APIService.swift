@@ -9,14 +9,9 @@
 import Alamofire
 import Foundation
 
-
-fileprivate let api_key = API_KEY
+fileprivate let api_key = "API_KEY"
 fileprivate let api_url_base = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key="
 let BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original/"
-
-protocol ServiceProtocol {
-	func fetchPopularMovies(completion: @escaping ([Movie]?) -> Void)
-}
 
 class APIService : ServiceProtocol {
 	func fetchPopularMovies(completion: @escaping ([Movie]?) -> Void) {
@@ -30,7 +25,10 @@ class APIService : ServiceProtocol {
 				completion(nil)
 				return
 			}
-			let movies = try! JSONDecoder().decode(MovieList.self, from: data)
+			guard let movies = try? JSONDecoder().decode(MovieList.self, from: data) else {
+				completion(nil)
+				return
+			}
 			DispatchQueue.main.async {
 				completion(movies.results)
 			}
@@ -44,7 +42,10 @@ class APIService : ServiceProtocol {
 					completion(nil)
 					return
 				}
-				let movies = try! JSONDecoder().decode(MovieList.self, from: data)
+				guard let movies = try? JSONDecoder().decode(MovieList.self, from: data) else {
+					completion(nil)
+					return
+				}
 				DispatchQueue.main.async {
 					completion(movies.results)
 				}

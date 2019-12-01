@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct MovieList: Decodable {
+struct MovieList: Decodable{
 	var results: [Movie]
 }
