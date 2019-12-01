@@ -9,19 +9,22 @@ import Foundation
 import SwiftUI
 
 struct ContentView : View {
-	@ObservedObject var networkManager = NetworkManager()
+	@ObservedObject var viewmodel = MovieViewModel()
 	var body: some View {
 		NavigationView {
 			VStack {
-				if networkManager.loading {
+				if viewmodel.loading {
 					Text("Loading ...")
 				} else {
-					List(networkManager.movies.results) { movie in
+					List(viewmodel.movies.results) { movie in
 						NavigationLink(destination: MovieDetails(movie: movie)){
 							MovieRow(movie: movie)
 						}
 					}
 				}
+			}
+			.onAppear {
+				self.viewmodel.loadData()
 			}
 			.navigationBarTitle(Text("Movies"))
 		}

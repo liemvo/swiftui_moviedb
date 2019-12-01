@@ -8,7 +8,7 @@
 
 import SwiftUI
 import URLImage
-let BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original/"
+
 struct MovieDetails : View {
 	var movie: Movie
 	var body: some View {
