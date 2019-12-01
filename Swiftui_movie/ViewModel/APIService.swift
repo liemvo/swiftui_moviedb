@@ -15,15 +15,15 @@ fileprivate let api_url_base = "https://api.themoviedb.org/3/discover/movie?sort
 let BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original/"
 
 protocol ServiceProtocol {
-	func fetchPopularMovies(completion: @escaping (_ movies:[Movie]?) -> Void)
+	func fetchPopularMovies(completion: @escaping ([Movie]?) -> Void)
 }
 
 class APIService : ServiceProtocol {
-	func fetchPopularMovies(completion: @escaping (_ movies:[Movie]?) -> Void) {
+	func fetchPopularMovies(completion: @escaping ([Movie]?) -> Void) {
 		loadDataByAlamofire(completion)
 	}
 	
-	private func loadDataNormal(_ completion: @escaping (_ movies:[Movie]?) -> Void) {
+	private func loadDataNormal(_ completion: @escaping ([Movie]?) -> Void) {
 		guard let url = URL(string: "\(api_url_base)\(api_key)") else { return }
 		URLSession.shared.dataTask(with: url){ (data, _, _) in
 			guard let data = data else {
@@ -37,7 +37,7 @@ class APIService : ServiceProtocol {
 		}.resume()
 	}
 	
-	private func loadDataByAlamofire(_ completion: @escaping (_ movies:[Movie]?) -> Void) {
+	private func loadDataByAlamofire(_ completion: @escaping ([Movie]?) -> Void) {
 		Alamofire.request("\(api_url_base)\(api_key)")
 			.responseJSON{ response in
 				guard let data = response.data else {

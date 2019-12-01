@@ -12,10 +12,10 @@ import Combine
 class MovieViewModel: ObservableObject {
 	@Published var movies = MovieList(results: [])
 	@Published var loading = false
-	
+
 	let service: ServiceProtocol
-	init() {
-		self.service = APIService()
+	init(service: ServiceProtocol = APIService()) {
+		self.service = service
 	}
 	
 	func loadData() {
