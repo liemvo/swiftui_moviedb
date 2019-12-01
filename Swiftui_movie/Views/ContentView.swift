@@ -14,11 +14,19 @@ struct ContentView : View {
 		NavigationView {
 			VStack {
 				if viewmodel.loading {
-					Text("Loading ...")
+					VStack(alignment: .center) {
+						Text("Loading ...")
+					}
 				} else {
-					List(viewmodel.movies.results) { movie in
-						NavigationLink(destination: MovieDetails(movie: movie)){
-							MovieRow(movie: movie)
+					if (viewmodel.movies.results.count > 0) {
+						List(viewmodel.movies.results) { movie in
+							NavigationLink(destination: MovieDetails(movie: movie)){
+								MovieRow(movie: movie)
+							}
+						}
+					} else {
+						VStack(alignment: .center) {
+							Text("No movies or error")
 						}
 					}
 				}
