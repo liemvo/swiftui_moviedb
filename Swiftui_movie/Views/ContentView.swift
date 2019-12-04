@@ -12,11 +12,9 @@ struct ContentView : View {
 	@ObservedObject var viewmodel = MovieViewModel()
 	var body: some View {
 		NavigationView {
-			VStack {
+			VStack(alignment: .center) {
 				if viewmodel.loading {
-					VStack(alignment: .center) {
-						Text("Loading ...")
-					}
+					ActivityIndicator(color: Color.blue, size: 50)
 				} else {
 					if (viewmodel.movies.results.count > 0) {
 						List(viewmodel.movies.results) { movie in
